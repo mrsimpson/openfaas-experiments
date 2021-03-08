@@ -64,10 +64,16 @@ EOF
 ```
 
 ```bash
-ark install postgresql \
+ark install  postgresql \
+--set image.tag=11-debian-10 \
 --set persistence.enabled=true \
 --set persistence.existingClaim=postgres \
---set persistence.mountPath="/bitnami/postgresql"
+--set persistence.mountPath=/persistence \
+--set postgresqlDataDir=/persistence/data/ \
+--set volumePermissions.enabled=true \
+--set volumePermissions.securityContext.runAsUser=1001 \
+--set securityContext.fsGroup=0 \
+--set shmVolume.chmod.enabled=false
 ```
 
 ```text
@@ -96,7 +102,7 @@ To connect to your database from outside the cluster execute the following comma
 ```
 
 ## Create a user and DB
-`psql -h localhost -p 5432 -U postgres`
+`PGPASSWORD="$POSTGRES_PASSWORD" psql -h localhost -p 5432 -U postgres`
 
 ```
 CREATE ROLE curb WITH LOGIN PASSWORD 'curb'; 
