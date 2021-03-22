@@ -85,3 +85,24 @@ PASSWORD=$(kubectl get secret -n openfaas basic-auth -o jsonpath="{.data.basic-a
 echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 
 ```
+
+## Monitoring
+
+Use the predefined Grafana
+
+> OpenFaaS tracks metrics on your functions automatically using Prometheus. The metrics can be turned into a useful dashboard with free and Open Source tools like Grafana.
+>
+>Run Grafana in OpenFaaS Kubernetes namespace:
+>
+>
+>``` 
+> kubectl -n openfaas run \
+>--image=stefanprodan/faas-grafana:4.6.3 \
+>--port=3000 \
+>grafana
+>```
+> Expose it:
+>```
+>kubectl port-forward pod/grafana 31113:3000 -n openfaas
+>http://localhost:31113 "admin/admin
+>```
