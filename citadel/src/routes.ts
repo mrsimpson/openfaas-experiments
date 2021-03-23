@@ -1,4 +1,4 @@
-import {vehicleCreateHandler, vehicleDeleteByIdHandler, vehicleGetAllHandler, vehicleGetByIdHandler} from "./controller/vehicle";
+import {vehicleCreateHandler, vehicleDeleteByIdHandler, vehicleGetAllHandler, vehicleGetByIdHandler, vehicleHullHandler} from "./controller/vehicle";
 
 /**
  * All application routes.
@@ -23,5 +23,10 @@ export const AppRoutes = [
         path: "/vehicles/:id",
         method: "delete",
         action: vehicleDeleteByIdHandler
-    }
+    },
+    {
+        path: "/hull",
+        method: "get",
+        action: vehicleHullHandler
+    },
 ];

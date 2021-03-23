@@ -5,7 +5,7 @@ const test = process.env.NODE_ENV === "test"
 const options = {
   type: test ? "sqlite" : "postgres",
   synchronize: test,
-  logging: process.env.LOGLEVEL === "debug",
+  logging: process.env.LOGLEVEL === "debug" ? "all" : false,
   entities: [__dirname + "/entity/*{.ts,.js}"],
   migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
   subscribers: [],
@@ -32,7 +32,7 @@ if (process.env.DATABASE_URL && process.env.DATABASE_URL.startsWith("postgresql:
   )
 }
 
-console.log(
+console.debug(
   "ORM Config: " +
     JSON.stringify({
       ...ORMConfig,
