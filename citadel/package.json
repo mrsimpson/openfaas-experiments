@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --watch src --respawn src/app.ts",
+    "dev": "LOGLEVEL=debug ts-node-dev --respawn src/app.ts",
     "start": "node dist/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:run": "npm run typeorm migration:run"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +26,7 @@
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.5"
   },
   "dependencies": {
