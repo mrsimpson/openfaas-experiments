@@ -43,6 +43,5 @@ export async function vehicleCreateHandler(request: Request, response: Response)
 export async function vehicleHullHandler(request: Request, response: Response) {
     const vehicleHullRepository = getManager().getRepository(VehicleHull);
     const hull = await vehicleHullRepository.findOne();
-    console.log(hull)
     response.send(hull);
 }

@@ -2,7 +2,7 @@
 GET http://localhost:3000/vehicles
 
 ### Get by ID
-GET http://localhost:3000/vehicles/2
+GET http://localhost:3000/vehicles/5
 
 ### Hull
 GET http://localhost:3000/hull
