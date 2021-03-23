@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "LOGLEVEL=debug ts-node-dev --respawn src/app.ts",
+    "dev": "LOGLEVEL=debug ts-node-dev --respawn src/index.ts",
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
