@@ -106,3 +106,30 @@ Use the predefined Grafana
 >kubectl port-forward pod/grafana 31113:3000 -n openfaas
 >http://localhost:31113 "admin/admin
 >```
+
+## Making the express app a function
+
+Now, it's up to wrap (a part) of the citadel into a function.
+As a first step, we'll simply wrap the complete restful app into an OpenFaaS function.
+
+### Define the function
+
+in order to integrate the runtime into the OpenFaaS runtime (e. g. monitoring, async calls, scaling), we'll have to provide some metadata.
+
+```bash
+faas-cli new --lang=dockerfile --prefix=mrsimpson rest
+```
+
+By instructing it to be based on a docker file, we can reuse the one we use to actually run the citadel.
+
+### Provide the build context
+
+In order to build the Docker image (in case we want to) using `faas-cli`, we need to link the Dockerfile along with its dependencies which are copied during the build (notice the relative `..` seen from the function directory):
+
+```bash
+$ ln -s ../citadel/Dockerfile rest/Dockerfile
+$ ln -s ../citadel/package.json  rest/package.json
+$ ln -s ../citadel/package-lock.json  rest/package-lock.json
+$ ln -s ../citadel/src  rest/src
+$ ln -s ../citadel/tsconfig.json  rest/tsconfig.json
+```
