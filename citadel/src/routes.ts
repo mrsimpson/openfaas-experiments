@@ -1,9 +1,15 @@
+import { health } from "./controller/health";
 import {vehicleCreateHandler, vehicleDeleteByIdHandler, vehicleGetAllHandler, vehicleGetByIdHandler, vehicleHullHandler} from "./controller/vehicle";
 
 /**
  * All application routes.
  */
 export const AppRoutes = [
+    {
+        path: "/health",
+        method: "get",
+        action: health
+    },
     {
         path: "/vehicles",
         method: "get",
