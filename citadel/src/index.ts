@@ -25,7 +25,7 @@ createConnection(ORMConfig).then(async connection => {
     });
 
     // run app
-    app.listen(3000);
+    app.listen(8080);
 
     console.log("Express application is up and running on port 3000");
 

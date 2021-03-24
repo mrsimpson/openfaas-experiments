@@ -6,7 +6,7 @@ import {vehicleCreateHandler, vehicleDeleteByIdHandler, vehicleGetAllHandler, ve
  */
 export const AppRoutes = [
     {
-        path: "/health",
+        path: "/_/health",
         method: "get",
         action: health
     },

@@ -1,14 +1,17 @@
+# @basePath = http://localhost:8080
+@basePath = http://localhost:31112/function/rest
+
 ### Get all
-GET http://localhost:3000/vehicles
+GET {{basePath}}/vehicles
 
 ### Get by ID
-GET http://localhost:3000/vehicles/5
+GET {{basePath}}/vehicles/5
 
 ### Hull
-GET http://localhost:3000/hull
+GET {{basePath}}/hull
 
 ### Create roller
-POST http://localhost:3000/vehicles
+POST {{basePath}}/vehicles
 Content-Type: application/json
 
 {
@@ -20,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Create bike
-POST http://localhost:3000/vehicles
+POST {{basePath}}/vehicles
 Content-Type: application/json
 
 {
@@ -32,7 +35,7 @@ Content-Type: application/json
 }
 
 ### Create another bike
-POST http://localhost:3000/vehicles
+POST {{basePath}}/vehicles
 Content-Type: application/json
 
 {
@@ -44,4 +47,4 @@ Content-Type: application/json
 }
 
 ### Delete by ID
-DELETE http://localhost:3000/vehicles/4
+DELETE {{basePath}}/vehicles/4
