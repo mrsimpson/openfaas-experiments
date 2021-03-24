@@ -133,3 +133,9 @@ $ ln -s ../citadel/package-lock.json  rest/package-lock.json
 $ ln -s ../citadel/src  rest/src
 $ ln -s ../citadel/tsconfig.json  rest/tsconfig.json
 ```
+
+### Bring it to life
+
+```bash
+faas-cli deploy -f rest.yml -e PGHOST=postgresql.default
+```
